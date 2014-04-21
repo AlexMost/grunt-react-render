@@ -1,0 +1,46 @@
+{
+  "name": "grunt-react-render",
+  "description": "Grunt plugin for rendering reactjs components in existing markup",
+  "version": "0.1.0",
+  "homepage": "https://github.com/AlexMost/grunt-react-render",
+  "author": {
+    "name": "AlexMost",
+    "email": "alexmost1989@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlexMost/grunt-react-render"
+  },
+  "bugs": {
+    "url": "https://github.com/AlexMost/grunt-react-render/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/AlexMost/grunt-react-render/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-nodeunit": "^0.3.3",
+    "grunt": "~0.4.4",
+    "grunt-contrib-coffee": "^0.10.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "envify": "^1.2.1"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.4"
+  },
+  "keywords": [
+    "gruntplugin"
+  ],
+  "dependencies": {
+    "react": "^0.10.0",
+    "cheerio": "^0.15.0"
+  }
+}
