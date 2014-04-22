@@ -98,7 +98,7 @@ grunt.initConfig({
     task1: {
       options: 
           {src: "./path/to/some/file.html",
-          dest: "./dest/}
+          dest: "./dest/"}
     },
   },
 });
