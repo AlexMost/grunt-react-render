@@ -20,70 +20,89 @@ grunt.loadNpmTasks('grunt-react-render');
 ## The "react_render" task
 
 ### Overview
-In your project's Gruntfile, add a section named `react_render` to the data object passed into `grunt.initConfig()`.
+Lets assume you creating some static site with html pages and have some react component:
+
 
 ```js
-grunt.initConfig({
-  react_render: {
-    options: {
-      // Task-specific options go here.
-    },
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    },
-  },
+//path - ./component/component1.js
+React = require('react');
+
+Comp1 = React.createClass({
+    render: function(){
+        return React.DOM.div({id: "comp1", className: "test"}, "testDiv")
+    }
 });
+
+module.exports = Comp1
 ```
 
-### Options
 
-#### options.separator
-Type: `String`
-Default value: `',  '`
+Here is our source markup:
 
-A string value that is used to do something with whatever.
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head></head>
+    <body>
+      <h1>Header ...</h1>
+      <!-- placing path to component file in data-rcomp attribute -->
+      <div data-rcomp="./component/component1.js" id="container"></div>
+      <script type="javascript">
+        //some init logic
+      </script>
+    </body>
+</html>
+```
 
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
+After processing we will recieve:
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head></head>
+    <body>
+      <h1>Header ...</h1>
+      <!-- placing path to component file in data-rcomp attribute -->
+      <div data-rcomp="./component/component1.js" id="container">
+      <div id="comp1" class="test" data-reactid=".1vufboq169s" data-react-checksum="1034950555">testDiv</div>
+      </div>
+      <script type="javascript">
+        //some init logic
+      </script>
+    </body>
+</html>
+```
 
-A string value that is used to do something else with whatever else.
+So, as you may understood this plugin will iterate through all over the components and will call React.renderComponentToString for each component.
+
 
 ### Usage Examples
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+#### Overwrite existing file
+In this example we will overwrite an existing file:
 
 ```js
 grunt.initConfig({
   react_render: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+    task1: {
+      options: {src: "./path/to/some/file.html"}
     },
   },
 });
 ```
 
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
+#### Create processed file at some dest
+This configuration will create file with the same name at some destination path.
 ```js
 grunt.initConfig({
   react_render: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+    task1: {
+      options: 
+          {src: "./path/to/some/file.html",
+          dest: "./dest/}
     },
   },
 });
 ```
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
-
-## Release History
-_(Nothing yet)_
+Take care to maintain the existing coding style. Add unit tests for any new or changed functionality.
