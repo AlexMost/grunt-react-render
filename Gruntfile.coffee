@@ -23,17 +23,21 @@ module.exports = (grunt) ->
           dest: "tasks/"
           ext: ".js"
 
+    nodeunit:
+        all: ['test/**/test*.coffee']
+
     react_render:
         task1: {}
   )
 
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-watch'
+  grunt.loadNpmTasks 'grunt-contrib-nodeunit'
 
   grunt.loadTasks 'tasks'
   grunt.registerTask 'default', ['coffee:build']
   grunt.registerTask 'render', ['react_render']
-  grunt.registerTask 'build', ['coffee']
+  grunt.registerTask 'build', ['coffee', 'nodeunit']
 
 
 
