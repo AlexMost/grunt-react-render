@@ -24,14 +24,13 @@
     "node": ">= 0.8.0"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt nodeunit"
   },
   "devDependencies": {
     "grunt-contrib-nodeunit": "^0.3.3",
     "grunt": "~0.4.4",
     "grunt-contrib-coffee": "^0.10.1",
-    "grunt-contrib-watch": "^0.6.1",
-    "envify": "^1.2.1"
+    "grunt-contrib-watch": "^0.6.1"
   },
   "peerDependencies": {
     "grunt": "~0.4.4"

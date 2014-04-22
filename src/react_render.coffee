@@ -5,6 +5,7 @@
 # Licensed under the MIT license.
 
 {processFile} = require './lib'
+path = require 'path'
 
 
 module.exports = (grunt) ->
@@ -17,8 +18,17 @@ module.exports = (grunt) ->
         done = @async()
         options = @options defaults
         src = options.src
+        
+        dest = if options.dest
+            fname = path.basename src
+            path.join path.resolve(options.dest), fname
+        else
+            src
 
-        processFile src, src, (error) ->
-            grunt.log.oklns 'grunt-react-render done'  
+        grunt.log.ok "Injecting react components into #{src}"
+
+        processFile src, dest, (error) ->
+            grunt.log.ok "file #{dest} is ready"
+            grunt.log.subhead 'grunt-react-render done'  
             done()
     )

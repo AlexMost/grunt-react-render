@@ -19,17 +19,15 @@
     var basedir;
     basedir = process.cwd();
     return fs.readFile(filePath, function(err, content) {
-      var $, components;
+      var $;
       if (err) {
         cb(new Error(err));
       }
       $ = cheerio.load(content.toString());
-      components = $('*[data-rcomp]');
-      components = !Array.isArray(components) ? [components] : components;
-      components.map(function(comp) {
+      $('*[data-rcomp]').each(function(index, comp) {
         var comp_path;
-        comp_path = path.resolve(basedir, comp.data().rcomp);
-        return comp.html(renderComponent(comp_path));
+        comp_path = path.resolve(basedir, comp.data.rcomp);
+        return $(comp).html(renderComponent(comp_path));
       });
       return fs.writeFile(destPath, $.html(), cb);
     });

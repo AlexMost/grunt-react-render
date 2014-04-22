@@ -27,7 +27,10 @@ module.exports = (grunt) ->
         all: ['test/**/test*.coffee']
 
     react_render:
-        task1: {}
+        task1:
+          options:
+            src: './test/fixtures/render1comp.html'
+            dest: './test/tmp/'
   )
 
   grunt.loadNpmTasks 'grunt-contrib-coffee'
