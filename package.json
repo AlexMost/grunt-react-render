@@ -1,7 +1,7 @@
 {
   "name": "grunt-react-render",
   "description": "Grunt plugin for rendering reactjs components in existing markup",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/AlexMost/grunt-react-render",
   "author": {
     "name": "AlexMost",
