@@ -11,9 +11,12 @@ React = require 'react'
 path = require 'path'
 
 
-renderComponent = (componentPath) ->
-    component = require componentPath
-    React.renderComponentToString component()
+renderComponent = (componentPath, componentProps) ->
+    component = require componentPath    
+    props = {}
+    if componentProps
+       props = JSON.parse componentProps
+    React.renderToString(React.createElement(component, props))
 
 
 processFile = (filePath, destPath, cb) ->
@@ -26,7 +29,7 @@ processFile = (filePath, destPath, cb) ->
 
         $('*[data-rcomp]').each (index, comp) ->
             comp_path = path.resolve(basedir, comp.data.rcomp)
-            $(comp).html (renderComponent comp_path)
+            $(comp).html (renderComponent(comp_path, comp.data.rprop) )
 
         fs.writeFile destPath, $.html(), cb
 

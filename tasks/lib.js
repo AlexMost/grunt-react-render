@@ -9,10 +9,14 @@
 
   path = require('path');
 
-  renderComponent = function(componentPath) {
-    var component;
+  renderComponent = function(componentPath, componentProps) {
+    var component, props;
     component = require(componentPath);
-    return React.renderComponentToString(component());
+    props = {};
+    if (componentProps) {
+      props = JSON.parse(componentProps);
+    }
+    return React.renderToString(React.createElement(component, props));
   };
 
   processFile = function(filePath, destPath, cb) {
@@ -27,7 +31,7 @@
       $('*[data-rcomp]').each(function(index, comp) {
         var comp_path;
         comp_path = path.resolve(basedir, comp.data.rcomp);
-        return $(comp).html(renderComponent(comp_path));
+        return $(comp).html(renderComponent(comp_path, comp.data.rprop));
       });
       return fs.writeFile(destPath, $.html(), cb);
     });

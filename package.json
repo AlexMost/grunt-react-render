@@ -1,12 +1,16 @@
 {
   "name": "grunt-react-render",
   "description": "Grunt plugin for rendering reactjs components in existing markup",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/AlexMost/grunt-react-render",
   "author": {
     "name": "AlexMost",
     "email": "alexmost1989@gmail.com"
   },
+  "contributors": [{
+	    "name": "Fabiano Taioli",
+	    "email": "ftaioli@gmail.com"
+	  }],
   "repository": {
     "type": "git",
     "url": "https://github.com/AlexMost/grunt-react-render"
@@ -39,7 +43,7 @@
     "gruntplugin, render reactjs components, server side rendering, react, reactjs"
   ],
   "dependencies": {
-    "react": "^0.10.0",
+    "react": "~0.12.1",
     "cheerio": "^0.15.0"
   }
 }

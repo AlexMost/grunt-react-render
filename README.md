@@ -74,6 +74,25 @@ After processing we will recieve:
 
 So, as you may understood this plugin will iterate through all over the components and will call React.renderComponentToString for each component.
 
+### Using props
+
+You can pass props to React object adding json to the data-rprop attribute, exe:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    </head>
+    <body>
+        <div class="container">
+            <div data-rcomp="./test/fixtures/comp1" data-rprop="{&quot;p1&quot;:&quot;val1&quot;}" id="container"></div>            
+        </div>
+</body></html>
+```
+
+Rember to encode HTML special chars.
 
 ### Usage Examples
 
