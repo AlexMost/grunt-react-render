@@ -2,7 +2,8 @@ React = require('react');
 
 Comp1 = React.createClass({
     render: function(){
-        return React.DOM.div({id: "comp1", className: "test"}, "testDiv")
+    	var div = React.createFactory('div');
+        return div({id: "comp1", className: "test"}, "testDiv p1="+this.props.p1)
     }
 });
 

@@ -2,7 +2,8 @@ React = require('react');
 
 Comp1 = React.createClass({
     render: function(){
-        return React.DOM.span({id: "comp2", className: "test2"}, "testSpan")
+    	var span = React.createFactory('span');
+        return span({id: "comp2", className: "test2"}, "testSpan")
     }
 });
 

@@ -32,5 +32,10 @@ exports.test_component_render = (test) ->
                 $('#comp2').length is 1
                 "React component2 was not rendered"
             )
+            
+            test.ok(
+                $('#comp1').text() is 'testDiv p1=val1'
+                "React component1 props not rendered"
+            )
 
             test.done()
