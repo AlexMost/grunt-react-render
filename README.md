@@ -1,4 +1,4 @@
-# grunt-react-render
+# grunt-react-render v0.1.2
 
 > Grunt plugin for rendering reactjs components in existing markup
 
