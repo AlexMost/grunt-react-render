@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/AlexMost/abs.js.svg?branch=master)](https://travis-ci.org/AlexMost/grunt-react-render)
+[![Build Status](https://travis-ci.org/AlexMost/grunt-react-render.js.svg?branch=master)](https://travis-ci.org/AlexMost/grunt-react-render)
 [![Dependency Status](https://david-dm.org/alexmost/grunt-react-render.png)](https://david-dm.org/alexmost/grunt-react-render)
 
 # grunt-react-render v0.1.3
