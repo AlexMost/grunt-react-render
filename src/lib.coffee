@@ -13,9 +13,7 @@ path = require 'path'
 
 renderComponent = (componentPath, componentProps) ->
     component = require componentPath    
-    props = {}
-    if componentProps
-       props = JSON.parse componentProps
+    props = componentProps or {}
     React.renderToString(React.createElement(component, props))
 
 
@@ -28,8 +26,8 @@ processFile = (filePath, destPath, cb) ->
         $ = cheerio.load content.toString()
 
         $('*[data-rcomp]').each (index, comp) ->
-            comp_path = path.resolve(basedir, comp.data.rcomp)
-            $(comp).html (renderComponent(comp_path, comp.data.rprop) )
+            comp_path = path.resolve(basedir, $(comp).data().rcomp)
+            $(comp).html(renderComponent(comp_path, $(comp).data().rprop))
 
         fs.writeFile destPath, $.html(), cb
 

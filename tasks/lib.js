@@ -30,8 +30,8 @@
       $ = cheerio.load(content.toString());
       $('*[data-rcomp]').each(function(index, comp) {
         var comp_path;
-        comp_path = path.resolve(basedir, comp.data.rcomp);
-        return $(comp).html(renderComponent(comp_path, comp.data.rprop));
+        comp_path = path.resolve(basedir, $(comp).data().rcomp);
+        return $(comp).html(renderComponent(comp_path, $(comp).data().rprop));
       });
       return fs.writeFile(destPath, $.html(), cb);
     });
